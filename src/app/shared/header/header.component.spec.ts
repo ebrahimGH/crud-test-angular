@@ -22,4 +22,17 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(HeaderComponent); 
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector("[data-test='title']")?.textContent).toContain('Crud Test Angular');
+  });
+
+  it('should render navbar links', () => {
+    const fixture = TestBed.createComponent(HeaderComponent); 
+    const compiled = fixture.nativeElement as HTMLElement;
+    const navLinks = compiled.querySelectorAll('[data-test="nav-link"]')
+    expect(navLinks.length).toBe(2)
+  });
 });

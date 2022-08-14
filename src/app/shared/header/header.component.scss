@@ -1,9 +1,15 @@
 .logo {
-    width: 120px;
-    height: 31px; 
-    margin: 16px 24px 16px 0;
+    text-align: right;
+    margin-right: 20px;
+    width: 200px;  
     float: left;
     background: url(/assets/images/logo.png) no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: contain;
+    color: white;
+    .content{
+      span{ 
+        font-weight: bold;
+      }
+    }
   }

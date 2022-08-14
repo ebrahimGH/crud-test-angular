@@ -1,11 +1,14 @@
 <nz-header>
-    <div class="logo"> 
+    <div class="logo">  
+        <div data-test="title" class="title">
+            <span>Crud Test Angular</span>
+        </div>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item>
+        <li data-test="nav-link" nz-menu-item>
             <a routerLink="/Customers">Customers</a>
         </li>
-        <li nz-menu-item>
+        <li data-test="nav-link" nz-menu-item>
             <a routerLink="/New_Customer">New Customer</a>
         </li> 
     </ul>
