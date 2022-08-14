@@ -1,1 +1,5 @@
-<p>customers-list works!</p>
+<div class="customers">
+    <div class="customer" data-test="customer" *ngFor="let customer of customers$ | async">
+        <app-customer-card-view [customer]="customer"></app-customer-card-view>
+    </div> 
+</div> 
