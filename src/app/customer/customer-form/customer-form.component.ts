@@ -7,6 +7,7 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { CustomersService } from '../services/customers.service';
 import { Customer } from '../Dtos/Customer';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-customer-form',
@@ -38,12 +39,13 @@ export class CustomerFormComponent {
         console.log('Search result', data)
         if (data) {  
           this.requestSent = false;
-          this.message = 'There is another Customer with this Informations.'
+          this.nzMessageService.error('There is another Customer with this Informations.')
+          this.message = 'There is a Customer With same Firstname, Lastname and DateOfBirth.'
           this.status = 'error'
         } else {  
           this.status ='success'
           this.customersService.addCustomer(newCustomer)
-          this.message = 'Successfully added new Customer.'
+          this.nzMessageService.success('Successfully added new Customer.')
           setTimeout(() => {
             this.message = '';
             this.requestSent = false;
@@ -88,7 +90,7 @@ export class CustomerFormComponent {
       })
     });
 
-  constructor(private fb: FormBuilder, private customersService: CustomersService,private router:Router) {
+  constructor(private fb: FormBuilder, private customersService: CustomersService,private router:Router,private nzMessageService: NzMessageService) {
     // use `MyValidators`
     const { required, maxLength, minLength, email, mobile, bankAccountNumber } = MyValidators;
     this.validateForm = this.fb.group({

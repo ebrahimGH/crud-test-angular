@@ -19,6 +19,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 
 
@@ -51,6 +52,7 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
     NzDatePickerModule,
     NzFormModule,
     NzAlertModule,
+    NzPopconfirmModule,
     RouterModule,
     ScrollGuideComponent,
     BackToTopComponent

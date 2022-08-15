@@ -8,6 +8,7 @@ import { CustomersListComponent } from './customers-list/customers-list.componen
 import { CustomerCardViewComponent } from './customer-card-view/customer-card-view.component'; 
 import { SharedModule } from '../shared/shared.module';
 import { CustomersService } from './services/customers.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CustomersService } from './services/customers.service';
     SharedModule
   ],
   providers:[
-    CustomersService
+    CustomersService,
+    NzMessageService
   ]
 })
 export class CustomerModule { }

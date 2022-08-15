@@ -1,25 +1,3 @@
-<!-- <div data-test="customer-info" *ngIf="customer">  
-    <nz-card style="width: 300px;margin-top: 16px" data-test="Fullname" [nzTitle]="customer.Firstname + ' ' +customer.Lastname" [nzActions]="[actionEdit,actionDelete]">
-        <p >Email : <strong data-test="Email">{{customer.Email}}</strong></p>
-        <p >Date Of Birth : <strong data-test="DateOfBirth">{{customer.DateOfBirth}}</strong></p>
-        <p >PhoneNumber <strong data-test="PhoneNumber">{{customer.PhoneNumber}}</strong></p>
-        <p >Bank Account Number : <strong data-test="BankAccountNumber">{{customer.BankAccountNumber}}</strong></p>
-    </nz-card>
-</div>
-<ng-template #actionSetting>
-    <i nz-icon nzType="setting"></i>
-</ng-template>
-<ng-template #actionEdit>
-    <i nz-icon nzType="edit"></i>
-</ng-template>
-<ng-template #actionEllipsis>
-    <i nz-icon nzType="ellipsis"></i>
-</ng-template>
-<ng-template #actionDelete>
-    <i nz-icon nzType="delete" nzTheme="outline"></i>
-</ng-template> -->
-
-
 <nz-list-item  *ngIf="customer" data-test="customer-info">
     <nz-list-item-meta>
         <nz-list-item-meta-title >
@@ -42,7 +20,17 @@
     </nz-list-item-meta>
     <ul nz-list-item-actions>
         <nz-list-item-action>
-            <i nz-icon nzType="delete" nzTheme="outline"></i>
+            <a
+      nz-popconfirm
+      nzPopconfirmTitle="Are you sure?"
+      nzOkText="ok"
+      nzCancelText="cancel"
+      (nzOnConfirm)="confirm()"
+      (nzOnCancel)="cancel()"
+    >
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+
+    </a>
         </nz-list-item-action>
         <nz-list-item-action>
             <i nz-icon nzType="edit"></i>
