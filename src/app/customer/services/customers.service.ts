@@ -27,15 +27,15 @@ export class CustomersService extends InitCustomers {
       localStorage.setItem('customers', JSON.stringify(customers));
    }
 
-   deleteCustomer(customerId: number) {
+   deleteCustomer(customer: Customer) {
       let customers = JSON.parse(localStorage.getItem('customers') ?? '');
 
-      for (let i = 0; i < customers.length; i++) {
-         if (customers[i].text == customerId) {
+      for (let i = 0; i < customers.length; i++) { 
+         if (customers[i].BankAccountNumber == +customer.BankAccountNumber) {
             customers.splice(i, 1);
+            break;
          }
-      }
-      // Set New Customers
+      } 
       localStorage.setItem('customers', JSON.stringify(customers));
    }
 

@@ -18,6 +18,14 @@ const routes: Routes = [
       {
         path:'New_Customer',
         component:CustomerFormComponent
+      },
+      {
+        path:'Edit_Customer',
+        component:CustomerFormComponent
+      },
+      {
+        path:'Edit_Customer/:email',
+        component:CustomerFormComponent
       }
     ]
   },

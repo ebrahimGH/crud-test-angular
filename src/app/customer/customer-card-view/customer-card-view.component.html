@@ -1,6 +1,6 @@
-<nz-list-item  *ngIf="customer" data-test="customer-info">
+<nz-list-item *ngIf="customer" data-test="customer-info">
     <nz-list-item-meta>
-        <nz-list-item-meta-title >
+        <nz-list-item-meta-title>
             <span data-test="Fullname">{{ customer.Firstname }} {{customer.Lastname}}</span>
         </nz-list-item-meta-title>
         <nz-list-item-meta-description>
@@ -20,20 +20,15 @@
     </nz-list-item-meta>
     <ul nz-list-item-actions>
         <nz-list-item-action>
-            <a
-      nz-popconfirm
-      nzPopconfirmTitle="Are you sure?"
-      nzOkText="ok"
-      nzCancelText="cancel"
-      (nzOnConfirm)="confirm()"
-      (nzOnCancel)="cancel()"
-    >
-    <i nz-icon nzType="delete" nzTheme="outline"></i>
-
-    </a>
+            <a nz-popconfirm nzPopconfirmTitle="Are you sure?" nzOkText="ok" nzCancelText="cancel"
+                (nzOnConfirm)="confirm()" (nzOnCancel)="cancel()">
+                <i nz-icon nzType="delete" nzTheme="outline"></i>
+            </a>
         </nz-list-item-action>
         <nz-list-item-action>
-            <i nz-icon nzType="edit"></i>
-        </nz-list-item-action> 
-    </ul> 
+            <a routerLink="/Edit_Customer" [queryParams]="{email: customer.Email}">
+                <i nz-icon nzType="edit"></i>
+            </a>
+        </nz-list-item-action>
+    </ul>
 </nz-list-item>

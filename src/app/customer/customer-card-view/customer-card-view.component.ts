@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Customer } from '../Dtos/Customer';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -9,16 +9,17 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class CustomerCardViewComponent implements OnInit {
   @Input() customer!:Customer | undefined;
+  @Output() delete = new EventEmitter<boolean>();
   constructor(private nzMessageService: NzMessageService) { }
 
   ngOnInit(): void {
   }
 
   cancel(): void {
-    this.nzMessageService.info('click cancel');
+    this.nzMessageService.info('Delete canceled');
   }
 
   confirm(): void {
-    this.nzMessageService.info('click confirm');
+    this.delete.emit(true) 
   }
 }

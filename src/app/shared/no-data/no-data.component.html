@@ -1,0 +1,11 @@
+<nz-empty nzNotFoundImage="../../../assets/images/nz-empty.svg"
+    [nzNotFoundContent]="contentTpl" [nzNotFoundFooter]="footerTpl">
+    <ng-template #contentTpl>
+        <span> 
+            {{description}}
+        </span>
+    </ng-template>
+    <ng-template #footerTpl>
+        <button nz-button nzType="primary" (click)="onClick()" >{{actionText}}</button>
+    </ng-template>
+</nz-empty>

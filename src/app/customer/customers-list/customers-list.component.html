@@ -1,11 +1,13 @@
 <div class="customers hide-scroll" nzItemLayout="vertical" #customers>
     <nz-list [nzSplit]="true" nzItemLayout="vertical" class="customer" data-test="customer"
         *ngFor="let customer of customers$ | async">
-        <app-customer-card-view [customer]="customer"></app-customer-card-view>
+        <app-customer-card-view [customer]="customer" (delete)="deleteCustomer(customer)"></app-customer-card-view>
         <nz-divider nzPlain></nz-divider>
     </nz-list>
     <div class="loadmore" nz-list-load-more data-test="load-more-button">
-        <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">loading more</button>
+        <app-no-data description="Nothing found" actionText="Add Customer" *ngIf="totalItems == 0"
+        (addSome)="addCustomer($event)"></app-no-data>   
+             <!-- <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">loading more</button> -->
     </div>
     <app-scroll-guide data-test="scroll-guide" *ngIf="totalItems >= 3" direction="down"></app-scroll-guide>
     <app-back-to-top [divTarget]="customers"></app-back-to-top>

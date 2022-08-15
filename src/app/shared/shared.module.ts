@@ -20,6 +20,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NoDataComponent } from './no-data/no-data.component';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 
 
@@ -27,12 +29,15 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
   declarations: [ 
     HeaderComponent,
     ScrollGuideComponent,
-    BackToTopComponent
+    BackToTopComponent,
+    NoDataComponent
   ],
   imports: [
     CommonModule,
     NzLayoutModule,
     NzMenuModule,
+    NzEmptyModule,
+    NzButtonModule,
     NzBackTopModule,
     RouterModule
   ],
@@ -53,6 +58,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
     NzFormModule,
     NzAlertModule,
     NzPopconfirmModule,
+    NoDataComponent,
     RouterModule,
     ScrollGuideComponent,
     BackToTopComponent
