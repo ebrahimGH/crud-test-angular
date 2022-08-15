@@ -9,6 +9,8 @@ import { Customer } from '../Dtos/Customer';
 })
 export class CustomersListComponent implements OnInit {
   customers$!: Observable<Customer[]>;
+  totalItems:number = 0;
+  loadingMore:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -36,24 +38,16 @@ export class CustomersListComponent implements OnInit {
         PhoneNumber: "271-533-1426",
         Email: "uklamman1@economist.com",
         BankAccountNumber: 55852
-      },
-      {
-        Firstname: "Faber",
-        Lastname: "Nunn",
-        DateOfBirth: "4/9/2022",
-        PhoneNumber: "206-403-6955",
-        Email: "fnunn2@shutterfly.com",
-        BankAccountNumber: 20514
-      },
-      {
-        Firstname: "Giustino",
-        Lastname: "Haycock",
-        DateOfBirth: "8/11/2022",
-        PhoneNumber: "727-534-6363",
-        Email: "ghaycock4@umn.edu",
-        BankAccountNumber: 8480
-      }
+      }, 
     ])
+
+    this.customers$.subscribe(data=>{
+      this.totalItems = data.length;
+    })
+  }
+  onLoadMore(){
+    console.log('loadmore')
+    
   }
 
 }

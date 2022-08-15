@@ -53,14 +53,13 @@ describe('CustomerCardViewComponent', () => {
     }
     fixture.detectChanges()
     const customer = fixture.nativeElement.querySelector('[data-test="customer-info"]')
-    expect(customer.querySelector('[data-test="Firstname"]').innerText).toEqual('Pasquale')
-    expect(customer.querySelector('[data-test="Lastname"]').innerText).toEqual('Desaur')
+    expect(customer.querySelector('[data-test="Fullname"]').innerText).toEqual('Pasquale Desaur') 
     expect(customer.querySelector('[data-test="DateOfBirth"]').innerText).toEqual('11/20/2021')
     expect(customer.querySelector('[data-test="PhoneNumber"]').innerText).toEqual('455-179-4890')
     expect(customer.querySelector('[data-test="Email"]').innerText).toEqual('pdesaur3@imgur.com')
     expect(customer.querySelector('[data-test="BankAccountNumber"]').innerText).toEqual('2067')
   });
-  it('should hide customer card view if its data not intialized', ()=>{
+  it('should\'t display customer card view if its data not intialized', ()=>{
     fixture = TestBed.createComponent(CustomerCardViewComponent);
     component = fixture.componentInstance; 
     component.customer = undefined
