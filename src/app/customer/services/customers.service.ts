@@ -39,18 +39,14 @@ export class CustomersService extends InitCustomers {
       localStorage.setItem('customers', JSON.stringify(customers));
    }
 
-   updateCustomer(customer: Customer) {
-      let customers = JSON.parse(localStorage.getItem('customers') ?? '');
-
-      // Set New Customers
-      localStorage.setItem('customers', JSON.stringify(customers));
+   updateCustomer(customer: Customer, updatedCustomer:Customer) {
+      this.deleteCustomer(customer)
+      this.addCustomer(updatedCustomer) 
    }
+   
 
-   infoExist(field: string, searchText: any) {
-      let customers = JSON.parse(localStorage.getItem('customers') ?? '');
-      if(!isNaN(+searchText)){
-         searchText =+searchText
-      }
+   getCustomer(field: string, searchText: any) {
+      let customers = JSON.parse(localStorage.getItem('customers') ?? ''); 
       return of(_.find(customers, [field, searchText])).pipe(
          delay(1000))
    }
