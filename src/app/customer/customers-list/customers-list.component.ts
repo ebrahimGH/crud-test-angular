@@ -1,48 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Customer } from '../Dtos/Customer';
+import { CustomersService } from '../services/customers.service';
 
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
-  styleUrls: ['./customers-list.component.scss']
+  styleUrls: ['./customers-list.component.scss'],
+  providers:[CustomersService]
 })
 export class CustomersListComponent implements OnInit {
   customers$!: Observable<Customer[]>;
   totalItems:number = 0;
   loadingMore:boolean = false;
-  constructor() { }
+  constructor(private customersService:CustomersService) { }
 
   ngOnInit(): void {
-    this.customers$ = of<Customer[]>([
-      {
-        Firstname: "Pasquale",
-        Lastname: "Desaur",
-        DateOfBirth: "11/20/2021",
-        PhoneNumber: "455-179-4890",
-        Email: "pdesaur3@imgur.com",
-        BankAccountNumber: 2067
-      },
-      {
-        Firstname: "Granville",
-        Lastname: "McQuaid",
-        DateOfBirth: "4/8/2022",
-        PhoneNumber: "468-794-8491",
-        Email: "gmcquaid0@boston.com",
-        BankAccountNumber: 51609
-      },
-      {
-        Firstname: "Urbain",
-        Lastname: "Klamman",
-        DateOfBirth: "5/6/2022",
-        PhoneNumber: "271-533-1426",
-        Email: "uklamman1@economist.com",
-        BankAccountNumber: 55852
-      }, 
-    ])
-
+    this.customers$ = of<Customer[]>( this.customersService.getCustomers())
     this.customers$.subscribe(data=>{
-      this.totalItems = data.length;
+      this.totalItems = data.length; 
     })
   }
   onLoadMore(){

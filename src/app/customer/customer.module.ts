@@ -7,6 +7,7 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomersListComponent } from './customers-list/customers-list.component';
 import { CustomerCardViewComponent } from './customer-card-view/customer-card-view.component'; 
 import { SharedModule } from '../shared/shared.module';
+import { CustomersService } from './services/customers.service';
 
 
 @NgModule({
@@ -20,6 +21,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     CustomerRoutingModule,
     SharedModule
+  ],
+  providers:[
+    CustomersService
   ]
 })
 export class CustomerModule { }

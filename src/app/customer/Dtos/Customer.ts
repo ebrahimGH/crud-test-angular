@@ -4,5 +4,5 @@ export interface Customer {
 	DateOfBirth:string;
 	PhoneNumber:string;
 	Email:string;
-	BankAccountNumber:number;
+	BankAccountNumber:string;
 }

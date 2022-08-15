@@ -15,6 +15,10 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ScrollGuideComponent } from './scroll-guide/scroll-guide.component';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { NzBackTopModule } from 'ng-zorro-antd/back-top';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 
 
 
@@ -43,6 +47,10 @@ import { NzBackTopModule } from 'ng-zorro-antd/back-top';
     NzListModule,
     NzDividerModule,
     NzButtonModule,
+    NzInputModule,
+    NzDatePickerModule,
+    NzFormModule,
+    NzAlertModule,
     RouterModule,
     ScrollGuideComponent,
     BackToTopComponent
