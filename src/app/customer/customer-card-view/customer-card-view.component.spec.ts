@@ -35,7 +35,7 @@ describe('CustomerCardViewComponent', () => {
       DateOfBirth: "11/20/2021",
       PhoneNumber: "455-179-4890",
       Email: "pdesaur3@imgur.com",
-      BankAccountNumber: 2067
+      BankAccountNumber: '2067'
     }
     expect(component.customer).toBeDefined();
   });
@@ -49,7 +49,7 @@ describe('CustomerCardViewComponent', () => {
       DateOfBirth: "11/20/2021",
       PhoneNumber: "455-179-4890",
       Email: "pdesaur3@imgur.com",
-      BankAccountNumber: 2067
+      BankAccountNumber: '2067'
     }
     fixture.detectChanges()
     const customer = fixture.nativeElement.querySelector('[data-test="customer-info"]')
